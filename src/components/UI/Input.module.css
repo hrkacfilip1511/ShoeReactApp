@@ -1,0 +1,21 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  cursor: pointer;
+}
+.input {
+  background: wheat;
+  padding: 5px 10px;
+  width: 150px;
+  border-radius: 3px;
+}
+.input input {
+  padding: 3px 6px;
+  width: 60px;
+  border: none;
+  background-color: rgb(184, 110, 58);
+  color: white;
+  border-radius: 10px;
+}
+.input input:focus {
+  outline: none;
+}

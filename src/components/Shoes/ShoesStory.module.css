@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kanit:wght@200&family=Lato:wght@300&family=Manrope&family=Poppins:ital,wght@0,200;1,300&family=Raleway:ital,wght@1,200&family=Roboto:wght@300&display=swap");
+.story {
+  height: 150px;
+  background-color: rgb(59, 57, 54);
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.moto {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  font-family: "Raleway";
+  letter-spacing: 1px;
+  animation: motoAnim 2.3s ease-in-out;
+}
+.story p:nth-child(1) {
+  font-size: 1.1rem;
+  color: white;
+  font-family: "Roboto";
+  letter-spacing: 0.8px;
+  animation: up-down 0.5s ease-in-out;
+}
+.story p:nth-child(2) {
+  font-size: 1.1rem;
+  color: white;
+  font-family: "Roboto";
+  letter-spacing: 0.8px;
+  animation: shoeStory 1.2s ease-in-out;
+}
+@keyframes shoeStory {
+  from {
+    opacity: 0;
+    transform: translateY(6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+@keyframes up-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes motoAnim {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(6rem);
+    color: brown;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-0.2rem);
+  }
+}

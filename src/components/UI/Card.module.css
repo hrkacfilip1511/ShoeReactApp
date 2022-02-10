@@ -1,0 +1,13 @@
+.card {
+  background-color: rgb(233, 171, 95);
+  position: absolute;
+  top: 800px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.card ul {
+  margin: 0;
+  padding: 10px 20px;
+  list-style: none;
+}

@@ -1,0 +1,59 @@
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  /* overflow: scroll; */
+}
+.totalPrice span:nth-child(1) {
+  font-size: 1.4rem;
+  letter-spacing: 0.8px;
+  font-family: "Roboto";
+}
+.totalPrice span:nth-child(2) {
+  font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 1.3px;
+}
+.buttons {
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 20px;
+}
+.clsBtn {
+  cursor: pointer;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding: 8px 13px;
+  border-color: brown;
+  background-color: transparent;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+.clsBtn:hover {
+  background-color: brown;
+  color: white;
+}
+.ordBtn {
+  cursor: pointer;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding: 8px 13px;
+  border-color: brown;
+  background-color: transparent;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+.ordBtn:hover {
+  background-color: brown;
+  color: white;
+}
