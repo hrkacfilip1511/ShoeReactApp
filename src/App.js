@@ -1,9 +1,10 @@
 import "./App.css";
-import { Fragment } from "react";
+
 import Header from "./components/Header/Header";
 import Shoes from "./components/Shoes/Shoes";
 import Cart from "./components/Cart/Cart";
 import React, { useState } from "react";
+import CartProvider from "./Store/CartProvider";
 function App() {
   const [isCartVisible, setCartVisibility] = useState(false);
   function showCartHandler() {
@@ -14,11 +15,11 @@ function App() {
   }
   console.log(!isCartVisible);
   return (
-    <Fragment>
+    <CartProvider>
       {isCartVisible && <Cart onHideCart={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <Shoes />
-    </Fragment>
+    </CartProvider>
   );
 }
 

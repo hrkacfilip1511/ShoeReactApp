@@ -1,6 +1,7 @@
-import Button from "../UI/Button";
-import Input from "../UI/Input";
+import { useContext } from "react";
+import CartContext from "../../Store/cart-context";
 import classes from "./ItemShoe.module.css";
+import ShoeForm from "./ShoeForm";
 
 const shoeNum = [
   { size: 40 },
@@ -11,7 +12,17 @@ const shoeNum = [
   { size: 45 },
   { size: 46 },
 ];
+
 function ItemShoe(props) {
+  const cartCtx = useContext(CartContext);
+  function addToCartHandler(amount) {
+    cartCtx.addItem({
+      id: props.id,
+      title: props.title,
+      amount: amount,
+      price: props.price,
+    });
+  }
   const eachNum = shoeNum.map((num) => (
     <div className={classes.option}>{num.size}</div>
   ));
@@ -27,8 +38,7 @@ function ItemShoe(props) {
         </div>
       </div>
       <div className={classes.size}>{eachNum}</div>
-      <Input />
-      <Button />
+      <ShoeForm onAddToCart={addToCartHandler} />
     </div>
   );
 }

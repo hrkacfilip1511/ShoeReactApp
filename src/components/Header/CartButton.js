@@ -1,15 +1,19 @@
-import { Fragment } from "react";
+import { useContext } from "react";
 import classes from "./CartButton.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+import CartContext from "../../Store/cart-context";
 function CartButton(props) {
+  const cartCtx = useContext(CartContext);
+  console.log(cartCtx);
+  const numberOfItemInCart = cartCtx.items.reduce((currNum, item) => {
+    return currNum + item.amount;
+  }, 0);
   return (
-    <Fragment>
-      <button className={classes.cartBtn} onClick={props.onClick}>
-        <FaShoppingCart className={classes.icon} />
-        <span>Cart</span>
-        <span className={classes.quantity}>0</span>
-      </button>
-    </Fragment>
+    <button className={classes.cartBtn} onClick={props.onClick}>
+      <FaShoppingCart className={classes.icon} />
+      <span>Cart</span>
+      <span className={classes.quantity}>{numberOfItemInCart}</span>
+    </button>
   );
 }
 export default CartButton;

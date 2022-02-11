@@ -1,10 +1,14 @@
+.listItems {
+  list-style-type: none;
+  max-height: 250px;
+  overflow: scroll;
+}
+
 .totalPrice {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 20px;
-
-  /* overflow: scroll; */
 }
 .totalPrice span:nth-child(1) {
   font-size: 1.4rem;
