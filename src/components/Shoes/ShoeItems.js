@@ -1,34 +1,60 @@
+import { useEffect, useState } from "react";
+
 import Card from "../UI/Card";
 import ItemShoe from "./ItemShoe";
 import classes from "./ShoeItems.module.css";
-const avaliableShoes = [
-  {
-    id: "s1",
-    name: "Nike Air Max 270",
-    price: 320.5,
-    picture: "../../assets/air-max-270.jpg",
-  },
-  {
-    id: "s2",
-    name: "Nike Air Force 1 '07",
-    price: 255.85,
-    picture: "../../assets/air-force.jpg",
-  },
-  {
-    id: "s3",
-    name: "Air Jordan 11 Retro Low",
-    price: 322.77,
-    picture: "../../assets/air-jordan-11.jpg",
-  },
-  {
-    id: "s4",
-    name: "Adidas Kaptir 2.0",
-    price: 155.1,
-    picture: "../../assets/kaptir-2-0.jpg",
-  },
-];
+import { FaSpinner } from "react-icons/fa";
+
 function ShoeItems() {
-  const eachShoes = avaliableShoes.map((shoes) => (
+  const [shoes, setShoes] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json"
+      );
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+      const responseData = await response.json();
+
+      const loadedShoes = [];
+      for (const key in responseData) {
+        loadedShoes.push({
+          id: key,
+          name: responseData[key].name,
+          price: responseData[key].price,
+          picture: responseData[key].picture,
+        });
+      }
+      setShoes(loadedShoes);
+      setLoading(false);
+    };
+    fetchData().catch((error) => {
+      setLoading(false);
+      setError(error.message);
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.loadingTxt}>
+        <p>
+          <FaSpinner />
+        </p>
+      </section>
+    );
+  }
+  if (error) {
+    return (
+      <section className={classes.errorTxt}>
+        <p>{error}</p>
+      </section>
+    );
+  }
+
+  const eachShoes = shoes.map((shoes) => (
     <li>
       <ItemShoe
         key={shoes.id}

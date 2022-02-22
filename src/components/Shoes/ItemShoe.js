@@ -3,15 +3,15 @@ import CartContext from "../../Store/cart-context";
 import classes from "./ItemShoe.module.css";
 import ShoeForm from "./ShoeForm";
 
-const shoeNum = [
-  { size: 40 },
-  { size: 41 },
-  { size: 42 },
-  { size: 43 },
-  { size: 44 },
-  { size: 45 },
-  { size: 46 },
-];
+// const shoeNum = [
+//   { size: 40 },
+//   { size: 41 },
+//   { size: 42 },
+//   { size: 43 },
+//   { size: 44 },
+//   { size: 45 },
+//   { size: 46 },
+// ];
 
 function ItemShoe(props) {
   const cartCtx = useContext(CartContext);
@@ -23,9 +23,9 @@ function ItemShoe(props) {
       price: props.price,
     });
   }
-  const eachNum = shoeNum.map((num) => (
-    <div className={classes.option}>{num.size}</div>
-  ));
+  // const eachNum = shoeNum.map((num) => (
+  //   <div className={classes.option}>{num.size}</div>
+  // ));
   return (
     <div className={classes.shoes}>
       <div className={classes.overview}>
@@ -37,7 +37,7 @@ function ItemShoe(props) {
           <h4 className={classes.price}>{props.price} KM</h4>
         </div>
       </div>
-      <div className={classes.size}>{eachNum}</div>
+      {/* <div className={classes.size}>{eachNum}</div> */}
       <ShoeForm onAddToCart={addToCartHandler} />
     </div>
   );

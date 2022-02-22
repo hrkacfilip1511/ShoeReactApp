@@ -61,3 +61,8 @@
   background-color: brown;
   color: white;
 }
+.successText {
+  margin-left: 20px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+}

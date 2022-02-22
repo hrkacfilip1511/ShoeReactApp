@@ -1,0 +1,74 @@
+.submissionForm {
+  background-color: antiquewhite;
+
+  max-height: 15rem;
+  overflow: scroll;
+}
+.checkoutForm {
+  padding: 10px;
+  margin-left: 30px;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+.checkoutForm label {
+  font-weight: bold;
+}
+.checkoutForm input {
+  padding: 5px 10px;
+  border: none;
+  background: aliceblue;
+  margin-top: 5px;
+  border: 1px solid white;
+}
+.checkoutForm input:focus {
+  outline: none;
+  background: white;
+}
+.actionBtns {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.clsBtn {
+  cursor: pointer;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-color: brown;
+  background-color: transparent;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+.clsBtn:hover {
+  background-color: brown;
+  color: white;
+}
+.orderBtn {
+  cursor: pointer;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  border-color: brown;
+  background-color: transparent;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+.orderBtn:hover {
+  background-color: brown;
+  color: white;
+}
+.errorTxt {
+  color: red;
+  padding-left: 10px;
+  margin-left: 30px;
+  font-size: 0.7rem;
+}
+.errorInput input {
+  border: 1px solid rgb(255, 53, 53);
+}
