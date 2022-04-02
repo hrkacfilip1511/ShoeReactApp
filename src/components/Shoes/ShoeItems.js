@@ -15,7 +15,7 @@ function ShoeItems() {
         "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json"
       );
       if (!response.ok) {
-        throw new Error("Something went wrong");
+        throw new Error(response.status + " Error");
       }
       const responseData = await response.json();
 

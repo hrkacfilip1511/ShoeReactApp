@@ -1,24 +1,21 @@
-import "./App.css";
-
-import Header from "./components/Header/Header";
-import Shoes from "./components/Shoes/Shoes";
-import Cart from "./components/Cart/Cart";
-import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import CartProvider from "./Store/CartProvider";
+import HomePage from "./pages/HomePage";
+import AuthPage from "./pages/AuthPage";
+import Layout from "./layout/Layout";
+
 function App() {
-  const [isCartVisible, setCartVisibility] = useState(false);
-  function showCartHandler() {
-    setCartVisibility(true);
-  }
-  function hideCartHandler() {
-    setCartVisibility(false);
-  }
-  console.log(!isCartVisible);
   return (
     <CartProvider>
-      {isCartVisible && <Cart onHideCart={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <Shoes />
+      <Layout>
+        <Routes>
+          <Route path="/" exact element={<HomePage />} />
+
+          <Route path="/auth" element={<AuthPage />} />
+
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </Layout>
     </CartProvider>
   );
 }

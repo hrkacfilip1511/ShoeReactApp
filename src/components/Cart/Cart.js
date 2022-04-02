@@ -1,4 +1,5 @@
 import { Fragment, useContext, useState } from "react";
+import AuthContext from "../../Store/auth-context";
 import CartContext from "../../Store/cart-context";
 import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
@@ -6,6 +7,8 @@ import CartItem from "./CartItem";
 import Checkout from "./Checkout";
 function Cart(props) {
   const [isCheckoutForm, setCheckoutForm] = useState(false);
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
   const cartCtx = useContext(CartContext);
   const totalAmount = `${cartCtx.totalAmount.toFixed(2)} KM`;
   const cartIsEmpty = cartCtx.items.length > 0;
@@ -58,7 +61,7 @@ function Cart(props) {
       <button className={classes.clsBtn} onClick={props.onHideCart}>
         Close
       </button>
-      {cartIsEmpty && (
+      {cartIsEmpty && isLoggedIn && (
         <button className={classes.ordBtn} onClick={showCheckoutForm}>
           Order
         </button>
