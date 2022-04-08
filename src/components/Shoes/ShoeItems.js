@@ -4,37 +4,66 @@ import Card from "../UI/Card";
 import ItemShoe from "./ItemShoe";
 import classes from "./ShoeItems.module.css";
 import { FaSpinner } from "react-icons/fa";
+import ErrorModal from "../UI/ErrorModal";
+import { Fragment } from "react";
 
 function ShoeItems() {
   const [shoes, setShoes] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState();
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json"
-      );
-      if (!response.ok) {
-        throw new Error(response.status + " Error");
-      }
-      const responseData = await response.json();
+    // const fetchData = async () => {
+    //   const response = await fetch(
+    //     "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.jSon"
+    //   );
+    //   if (!response.ok) {
+    //     throw new Error(response.status + " Error");
+    //   }
+    //   const responseData = await response.json();
 
-      const loadedShoes = [];
-      for (const key in responseData) {
-        loadedShoes.push({
-          id: key,
-          name: responseData[key].name,
-          price: responseData[key].price,
-          picture: responseData[key].picture,
-        });
-      }
-      setShoes(loadedShoes);
-      setLoading(false);
-    };
-    fetchData().catch((error) => {
-      setLoading(false);
-      setError(error.message);
-    });
+    //   const loadedShoes = [];
+    //   for (const key in responseData) {
+    //     loadedShoes.push({
+    //       id: key,
+    //       name: responseData[key].name,
+    //       price: responseData[key].price,
+    //       picture: responseData[key].picture,
+    //     });
+    //   }
+    //   setShoes(loadedShoes);
+    //   setLoading(false);
+    // };
+    // fetchData().catch((error) => {
+    //   setLoading(false);
+    //   setError(error.message);
+    // });
+    setLoading(true);
+    fetch(
+      "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json"
+    )
+      .then((response) => {
+        setLoading(false);
+        console.log(response);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const loadedShoes = [];
+        for (const key in data) {
+          loadedShoes.push({
+            id: key,
+            name: data[key].name,
+            price: data[key].price,
+            picture: data[key].picture,
+          });
+        }
+        setShoes(loadedShoes);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   }, []);
 
   if (isLoading) {
@@ -43,13 +72,6 @@ function ShoeItems() {
         <p>
           <FaSpinner />
         </p>
-      </section>
-    );
-  }
-  if (error) {
-    return (
-      <section className={classes.errorTxt}>
-        <p>{error}</p>
       </section>
     );
   }
@@ -65,12 +87,22 @@ function ShoeItems() {
       />
     </li>
   ));
+  console.log(error);
+  const closeErrorHandler = () => {
+    setError(null);
+  };
   return (
-    <div className={classes.shoes}>
-      <Card>
-        <ul>{eachShoes}</ul>
-      </Card>
-    </div>
+    <Fragment>
+      {error ? (
+        <ErrorModal onClose={closeErrorHandler}>{error}</ErrorModal>
+      ) : (
+        <div className={classes.shoes}>
+          <Card>
+            <ul>{eachShoes}</ul>
+          </Card>
+        </div>
+      )}
+    </Fragment>
   );
 }
 export default ShoeItems;

@@ -1,0 +1,48 @@
+.errorBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(58, 51, 51, 0.45);
+  z-index: 200;
+}
+.errorContainer {
+  position: fixed;
+  background-color: rgba(202, 149, 50, 0.88);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 400px;
+  z-index: 500;
+  color: white;
+}
+.errorHeader {
+  background-color: coral;
+  font-size: 1.2rem;
+  padding: 10px;
+  text-align: center;
+}
+.errorMsg {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.closeErrorBtn {
+  margin-bottom: 30px;
+  padding: 20px;
+}
+.closeErrorBtn button {
+  width: 25%;
+  cursor: pointer;
+  border: none;
+  float: right;
+  padding: 10px 15px;
+  background-color: coral;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+.closeErrorBtn button:hover {
+  opacity: 0.7;
+}
