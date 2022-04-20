@@ -12,31 +12,7 @@ function ShoeItems() {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState();
   useEffect(() => {
-    // const fetchData = async () => {
-    //   const response = await fetch(
-    //     "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.jSon"
-    //   );
-    //   if (!response.ok) {
-    //     throw new Error(response.status + " Error");
-    //   }
-    //   const responseData = await response.json();
-
-    //   const loadedShoes = [];
-    //   for (const key in responseData) {
-    //     loadedShoes.push({
-    //       id: key,
-    //       name: responseData[key].name,
-    //       price: responseData[key].price,
-    //       picture: responseData[key].picture,
-    //     });
-    //   }
-    //   setShoes(loadedShoes);
-    //   setLoading(false);
-    // };
-    // fetchData().catch((error) => {
-    //   setLoading(false);
-    //   setError(error.message);
-    // });
+    
     setLoading(true);
     fetch(
       "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json"
