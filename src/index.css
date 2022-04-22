@@ -11,7 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.admin {
+.admin-header {
   position: absolute;
   z-index: 1000;
   position: absolute;
@@ -24,4 +24,16 @@ code {
   justify-content: space-evenly;
 
   align-items: center;
+}
+.logoutAdminButton {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.2rem;
+}
+.logoutAdminButton:hover {
+  background-color: bisque;
+  color: black;
+  transition: all 0.2s ease;
 }

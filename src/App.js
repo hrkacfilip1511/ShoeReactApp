@@ -11,9 +11,10 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
+
           <Route path="/admin" element={<AdminPage />} />
+
           <Route path="/auth" element={<AuthPage />} />
-          <Route path="*" element={<HomePage />} />
         </Routes>
       </Layout>
     </CartProvider>

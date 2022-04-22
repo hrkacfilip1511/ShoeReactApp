@@ -5,12 +5,15 @@ import App from "./App";
 
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "../src/Store/auth-context";
+import { AdminContextProvider } from "./Store/admin-auth-context";
 
 ReactDOM.render(
   <AuthContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AdminContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AdminContextProvider>
   </AuthContextProvider>,
   document.getElementById("root")
 );

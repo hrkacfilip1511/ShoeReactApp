@@ -1,0 +1,83 @@
+.auth {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(230, 85, 28);
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 5px;
+}
+.auth h3 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+.email,
+.password {
+  width: 250px;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.email input,
+.password input {
+  width: 100%;
+  padding: 7px 11px;
+  border: none;
+  border-radius: 5px;
+}
+.email input:focus,
+.password input:focus {
+  outline: none;
+}
+.email label,
+.password label {
+  margin-bottom: 7px;
+  font-size: 1.2rem;
+}
+.submitBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submitBtn button {
+  cursor: pointer;
+  padding: 7px 11px;
+  width: 80%;
+  color: white;
+  margin: 10px 0;
+  background-color: violet;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+}
+.submitBtn button:hover {
+  opacity: 0.8;
+}
+.submitBtn button:focus {
+  outline: none;
+}
+.changeLoginStatusBtn {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  color: rgb(251, 203, 203);
+  border-radius: 5px;
+}
+.changeLoginStatusBtn:hover {
+  color: white;
+}

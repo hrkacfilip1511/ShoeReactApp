@@ -1,0 +1,65 @@
+.adminForm {
+  background-color: rgb(255, 212, 131);
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+
+.titleText {
+  padding: 10px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+.image,
+.title,
+.price {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.image label,
+.title label,
+.price label {
+  width: 15%;
+}
+.image input,
+.title input,
+.price input {
+  width: 50%;
+  border: none;
+  padding: 5px 10px;
+}
+.image input:focus,
+.title input:focus,
+.price input:focus {
+  outline: none;
+}
+.adminActions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.adminActions button {
+  cursor: pointer;
+  width: 30%;
+  text-align: center;
+  border: none;
+  padding: 10px 15px;
+  background-color: chocolate;
+  color: white;
+  font-size: 1rem;
+  border-radius: 15px;
+}
+.adminActions button:hover {
+  transition: opacity 0.2s ease-in;
+  opacity: 0.7;
+}
