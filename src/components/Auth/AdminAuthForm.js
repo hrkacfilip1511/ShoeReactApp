@@ -1,7 +1,7 @@
 import classes from "./AdminAuthForm.module.css";
 import { useRef, useState, useContext } from "react";
 import AdminContext from "../../Store/admin-auth-context";
-import AuthContext from "../../Store/auth-context";
+
 const AdminAuthForm = () => {
   const adminCtx = useContext(AdminContext);
 

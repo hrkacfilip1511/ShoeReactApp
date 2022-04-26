@@ -3,13 +3,10 @@ import AdminForm from "../components/Admin/AdminForm";
 import AdminHeader from "../components/Admin/AdminHeader";
 import AdminAuthForm from "../components/Auth/AdminAuthForm";
 import AdminContext from "../Store/admin-auth-context";
-import AuthContext from "../Store/auth-context";
 
 const AdminPage = () => {
   const adminCtx = useContext(AdminContext);
-  const authCtx = useContext(AuthContext);
-  console.log("Admin je logiran ", adminCtx.isLoggedIn);
-  console.log("User je logiran", authCtx.isLoggedIn);
+
   const isLogged = adminCtx.isLoggedIn;
   const addingItemHandler = (data) => {
     fetch(

@@ -37,3 +37,45 @@ code {
   color: black;
   transition: all 0.2s ease;
 }
+.notFound {
+  position: relative;
+
+  height: 100vh;
+  color: white;
+  padding: 10px 20px;
+
+  text-align: center;
+  border-radius: 5px;
+}
+.notFound img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+}
+.notFound span {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  color: black;
+  transform: translate(-50%, -50%);
+}
+.notFound a {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: rgb(253, 240, 215);
+  background-color: rgb(145, 103, 51);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+}
+.notFound a:hover {
+  opacity: 0.7;
+}

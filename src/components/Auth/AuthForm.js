@@ -1,16 +1,13 @@
 import { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import AdminContext from "../../Store/admin-auth-context";
+
 import AuthContext from "../../Store/auth-context";
 import classes from "./AuthForm.module.css";
 
 function Auth() {
   const navigator = useNavigate();
   const authCtx = useContext(AuthContext);
-  const adminCtx = useContext(AdminContext);
 
-  console.log("Admin je logiran ", adminCtx.isLoggedIn);
-  console.log("User je logiran", authCtx.isLoggedIn);
   const [isLogin, setIsLogin] = useState(true);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
