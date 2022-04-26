@@ -4,17 +4,39 @@ import HomePage from "./pages/HomePage";
 import AuthPage from "./pages/AuthPage";
 import Layout from "./layout/Layout";
 import AdminPage from "./pages/AdminPage";
+import { AdminContextProvider } from "./Store/admin-auth-context";
+import { AuthContextProvider } from "./Store/auth-context";
 
 function App() {
   return (
     <CartProvider>
       <Layout>
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
-
-          <Route path="/admin" element={<AdminPage />} />
-
-          <Route path="/auth" element={<AuthPage />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminContextProvider>
+                <AdminPage />
+              </AdminContextProvider>
+            }
+          />
+          <Route
+            path="/"
+            exact
+            element={
+              <AuthContextProvider>
+                <HomePage />
+              </AuthContextProvider>
+            }
+          />
+          <Route
+            path="/auth"
+            element={
+              <AuthContextProvider>
+                <AuthPage />
+              </AuthContextProvider>
+            }
+          />
         </Routes>
       </Layout>
     </CartProvider>

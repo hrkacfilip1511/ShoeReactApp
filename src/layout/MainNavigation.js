@@ -2,9 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import classes from "./MainNavigation.module.css";
 import AuthContext from "../Store/auth-context";
+import AdminContext from "../Store/admin-auth-context";
 
 function MainNavigation() {
   const authCtx = useContext(AuthContext);
+  const adminCtx = useContext(AdminContext);
+
+  console.log("Admin je logiran ", adminCtx.isLoggedIn);
+  console.log("User je logiran", authCtx.isLoggedIn);
   const navigator = useNavigate();
   const isLoggedIn = authCtx.isLoggedIn;
   function logoutHandler() {

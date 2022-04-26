@@ -12,14 +12,13 @@ function ShoeItems() {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState();
   useEffect(() => {
-    
     setLoading(true);
     fetch(
       "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json"
     )
       .then((response) => {
         setLoading(false);
-        console.log(response);
+
         if (!response.ok) {
           throw new Error(response.statusText);
         }
@@ -63,7 +62,7 @@ function ShoeItems() {
       />
     </li>
   ));
-  console.log(error);
+
   const closeErrorHandler = () => {
     setError(null);
   };

@@ -36,7 +36,7 @@ function cartReducer(state, action) {
       (item) => item.id === action.ID
     );
     const addedItemInCart = state.items[addedItemInCartIndex];
-    console.log(addedItemInCart);
+
     const updatedPrice = state.totalAmount - addedItemInCart.price;
     let updateItems;
     if (addedItemInCart.amount === 1) {

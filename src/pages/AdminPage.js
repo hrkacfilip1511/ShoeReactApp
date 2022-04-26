@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import AdminForm from "../components/Admin/AdminForm";
 import AdminHeader from "../components/Admin/AdminHeader";
-// import AdminAuthForm from "../components/Auth/AdminAuthForm";
+import AdminAuthForm from "../components/Auth/AdminAuthForm";
 import AdminContext from "../Store/admin-auth-context";
+import AuthContext from "../Store/auth-context";
 
 const AdminPage = () => {
-  // const adminCtx = useContext(AdminContext);
+  const adminCtx = useContext(AdminContext);
+  const authCtx = useContext(AuthContext);
+  console.log("Admin je logiran ", adminCtx.isLoggedIn);
+  console.log("User je logiran", authCtx.isLoggedIn);
+  const isLogged = adminCtx.isLoggedIn;
   const addingItemHandler = (data) => {
     fetch(
       "https://shoe-shop-9bf1d-default-rtdb.europe-west1.firebasedatabase.app/shoes.json",
@@ -16,9 +21,13 @@ const AdminPage = () => {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
-      return res.json();
-    });
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div>
@@ -26,8 +35,12 @@ const AdminPage = () => {
         <AdminHeader />
       </div>
       <div className="admin-form">
-        {/* {isLogged ? <AdminForm /> : <AdminAuthForm />} */}
-        <AdminForm onAddToFirebase={addingItemHandler} />
+        {isLogged ? (
+          <AdminForm onAddToFirebase={addingItemHandler} />
+        ) : (
+          <AdminAuthForm />
+        )}
+        {/* <AdminForm onAddToFirebase={addingItemHandler} /> */}
       </div>
     </div>
   );

@@ -15,7 +15,6 @@ function Cart(props) {
   const [isSubmitting, setSubmitting] = useState(false);
   const [isSubmited, setSubmited] = useState(false);
   function addItemByOne(item) {
-    console.log("aa", totalAmount);
     cartCtx.addItem({ ...item, amount: 1 });
   }
   function removeItemByOne(id) {

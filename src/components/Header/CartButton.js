@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import CartContext from "../../Store/cart-context";
 function CartButton(props) {
   const cartCtx = useContext(CartContext);
-  console.log(cartCtx);
+
   const numberOfItemInCart = cartCtx.items.reduce((currNum, item) => {
     return currNum + item.amount;
   }, 0);
