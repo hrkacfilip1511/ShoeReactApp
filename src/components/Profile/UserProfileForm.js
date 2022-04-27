@@ -1,8 +1,10 @@
 import classes from "./UserProfileForm.module.css";
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 import AuthContext from "../../Store/auth-context";
 import { useNavigate } from "react-router-dom";
+import Snackbar from "../UI/Snackbar";
 const UserProfileForm = () => {
+  const [isPasswordChanged, setPasswordChanged] = useState(false);
   const passwordRef = useRef();
   const navigator = useNavigate();
   const authCtx = useContext(AuthContext);
@@ -22,23 +24,33 @@ const UserProfileForm = () => {
       }
     ).then((res) => {
       if (res.ok) {
-        alert("Password changed successfully.");
+        setPasswordChanged(true);
       }
-      authCtx.logout();
-      navigator("/");
+      setTimeout(() => {
+        authCtx.logout();
+        navigator("/");
+      }, 4000);
     });
   };
   return (
-    <div className={classes.passwordForm}>
-      <form onSubmit={changePasswordHandler}>
-        <div className={classes.newPasswordInput}>
-          <label htmlFor="new-password">Enter new password</label>
-          <input type="password" id="new-password" required ref={passwordRef} />
-        </div>
-        <div className={classes.actions}>
-          <button type="submit">Change Password</button>
-        </div>
-      </form>
+    <div>
+      <div className={classes.passwordForm}>
+        <form onSubmit={changePasswordHandler}>
+          <div className={classes.newPasswordInput}>
+            <label htmlFor="new-password">Enter new password</label>
+            <input
+              type="password"
+              id="new-password"
+              required
+              ref={passwordRef}
+            />
+          </div>
+          <div className={classes.actions}>
+            <button type="submit">Change Password</button>
+          </div>
+        </form>
+      </div>
+      {isPasswordChanged && <Snackbar />}
     </div>
   );
 };

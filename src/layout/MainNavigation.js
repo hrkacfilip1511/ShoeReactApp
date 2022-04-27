@@ -7,7 +7,7 @@ function MainNavigation() {
   const authCtx = useContext(AuthContext);
   const navigator = useNavigate();
   let isLoggedIn = authCtx.isLoggedIn;
-  console.log(authCtx);
+
   function logoutHandler() {
     authCtx.logout();
     navigator("/auth");

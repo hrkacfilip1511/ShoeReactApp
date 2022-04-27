@@ -24,6 +24,7 @@ const AdminPage = () => {
       }
       return res.json();
     });
+    console.log(isSuccessfullyAdded);
   };
   return (
     <div>
