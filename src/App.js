@@ -7,6 +7,7 @@ import AdminPage from "./pages/AdminPage";
 import { AdminContextProvider } from "./Store/admin-auth-context";
 import { AuthContextProvider } from "./Store/auth-context";
 import NotFoundPage from "./pages/NotFoundPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             />
             <Route path="/" exact element={<HomePage />} />
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </Layout>
       </AuthContextProvider>

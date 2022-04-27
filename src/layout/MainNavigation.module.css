@@ -38,8 +38,22 @@
   cursor: pointer;
   text-decoration: none;
   color: white;
-  font-size: 1.2rem;
 }
 .loginTxt:hover {
+  color: rgb(183, 245, 245);
+}
+.profile {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.profileLink {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+.profileLink:hover {
   color: rgb(183, 245, 245);
 }

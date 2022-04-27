@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import classes from "./MainNavigation.module.css";
 import AuthContext from "../Store/auth-context";
-import { useEffect } from "react";
 
 function MainNavigation() {
   const authCtx = useContext(AuthContext);
@@ -12,6 +11,9 @@ function MainNavigation() {
   function logoutHandler() {
     authCtx.logout();
     navigator("/auth");
+  }
+  function goToProfilePageHandler() {
+    navigator("/profile");
   }
 
   return (
@@ -24,16 +26,23 @@ function MainNavigation() {
           </span>
         </div>
       </Link>
-      {!isLoggedIn && (
-        <Link to="/auth">
-          <div className={classes.loginTxt}>Login</div>
-        </Link>
-      )}
-      {isLoggedIn && (
-        <div onClick={logoutHandler} className={classes.loginTxt}>
-          Logout
-        </div>
-      )}
+      <div className={classes.profile}>
+        {!isLoggedIn && (
+          <Link to="/auth">
+            <div className={classes.loginTxt}>Login</div>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <div onClick={logoutHandler} className={classes.loginTxt}>
+            Logout
+          </div>
+        )}
+        {isLoggedIn && (
+          <div className={classes.profileLink} onClick={goToProfilePageHandler}>
+            Profile
+          </div>
+        )}
+      </div>
     </div>
   );
 }
