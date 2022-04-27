@@ -11,36 +11,23 @@ import NotFoundPage from "./pages/NotFoundPage";
 function App() {
   return (
     <CartProvider>
-      <Layout>
-        <Routes>
-          <Route path="*" element={<NotFoundPage />} />
-          <Route
-            path="/admin"
-            element={
-              <AdminContextProvider>
-                <AdminPage />
-              </AdminContextProvider>
-            }
-          />
-          <Route
-            path="/"
-            exact
-            element={
-              <AuthContextProvider>
-                <HomePage />
-              </AuthContextProvider>
-            }
-          />
-          <Route
-            path="/auth"
-            element={
-              <AuthContextProvider>
-                <AuthPage />
-              </AuthContextProvider>
-            }
-          />
-        </Routes>
-      </Layout>
+      <AuthContextProvider>
+        <Layout>
+          <Routes>
+            <Route path="*" element={<NotFoundPage />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminContextProvider>
+                  <AdminPage />
+                </AdminContextProvider>
+              }
+            />
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/auth" element={<AuthPage />} />
+          </Routes>
+        </Layout>
+      </AuthContextProvider>
     </CartProvider>
   );
 }

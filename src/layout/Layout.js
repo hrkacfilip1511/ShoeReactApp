@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 function Layout(props) {
   const location = useLocation();
   const notFoundCtx = useContext(NotFoundContext);
-  console.log(location);
+
   if (
     location.pathname === "/" ||
     location.pathname === "/auth" ||

@@ -13,11 +13,11 @@ export const AdminContextProvider = (props) => {
   const adminIsLoggedIn = !!token;
   const loginHandler = (token) => {
     setToken(token);
-    localStorage.setItem("token", token);
+    localStorage.setItem("tokken", token);
   };
   const logoutHandler = () => {
     setToken(null);
-    localStorage.removeItem("token");
+    localStorage.removeItem("tokken");
   };
 
   const context = {
