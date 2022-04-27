@@ -1,12 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AdminForm from "../components/Admin/AdminForm";
 import AdminHeader from "../components/Admin/AdminHeader";
 import AdminAuthForm from "../components/Auth/AdminAuthForm";
 import AdminContext from "../Store/admin-auth-context";
-
+import Snackbar from "../components/UI/Snackbar";
 const AdminPage = () => {
   const adminCtx = useContext(AdminContext);
-
+  const [isSuccessfullyAdded, setSuccessfullyAdded] = useState(false);
   const isLogged = adminCtx.isLoggedIn;
   const addingItemHandler = (data) => {
     fetch(
@@ -18,13 +18,12 @@ const AdminPage = () => {
           "Content-Type": "application/json",
         },
       }
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
+    ).then((res) => {
+      if (res.ok) {
+        setSuccessfullyAdded(true);
+      }
+      return res.json();
+    });
   };
   return (
     <div>
@@ -37,7 +36,7 @@ const AdminPage = () => {
         ) : (
           <AdminAuthForm />
         )}
-        {/* <AdminForm onAddToFirebase={addingItemHandler} /> */}
+        {isSuccessfullyAdded && <Snackbar />}
       </div>
     </div>
   );
