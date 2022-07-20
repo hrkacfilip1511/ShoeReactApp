@@ -8,6 +8,10 @@ function CartItem(props) {
         <div className={classes.titlePrices}>
           <h3>{props.name}</h3>
           <h4>{price}</h4>
+          <div className={classes.shoeSize}>
+            <span>Veličina: </span>
+            <span>{props.size}</span>
+          </div>
         </div>
         <div className={classes.quantity}>
           <button onClick={props.onDecrease}>-</button>

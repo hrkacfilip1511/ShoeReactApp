@@ -48,6 +48,7 @@ function Cart(props) {
             name={item.title}
             amount={item.amount}
             price={item.price}
+            size={item.size}
             onDecrease={removeItemByOne.bind(null, item.id)}
             onIncrease={addItemByOne.bind(null, item)}
           />
